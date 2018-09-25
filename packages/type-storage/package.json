@@ -6,6 +6,9 @@
   "engines": {
     "node": ">=8.0"
   },
+  "scripts": {
+    "sync": "rsync -avzr --delete build/ ../../../poc-chainx/node_modules/@polkadot/storage/"
+  },
   "publishConfig": {
     "access": "public",
     "registry": "https://registry.npmjs.org"
