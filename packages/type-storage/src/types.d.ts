@@ -9,6 +9,7 @@ export type Storage$Key$Value = number | BN | Uint8Array | string;
 
 export type Storages = {
   consensus: Section<Storages, any, any>,
+  balances: Section<Storages, any, any>,
   // contract: Section<Storages, any, any>,
   council: Section<Storages, any, any>,
   councilVoting: Section<Storages, any, any>,

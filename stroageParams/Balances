@@ -1,0 +1,22 @@
+/// The total amount of stake on the system.
+pub TotalIssuance get(total_issuance): required T::Balance;
+/// The minimum amount allowed to keep an account open.
+pub ExistentialDeposit get(existential_deposit): required T::Balance;
+/// The amount credited to a destination's account whose index was reclaimed.
+pub ReclaimRebate get(reclaim_rebate): required T::Balance;
+/// The fee required to make a transfer.
+pub TransferFee get(transfer_fee): required T::Balance;
+/// The fee required to create an account. At least as big as ReclaimRebate.
+pub CreationFee get(creation_fee): required T::Balance;
+/// The next free enumeration set.
+pub NextEnumSet get(next_enum_set): required T::AccountIndex;
+/// The enumeration sets.
+pub EnumSet get(enum_set): default map [ T::AccountIndex => Vec<T::AccountId> ];
+/// The 'free' balance of a given account.
+pub FreeBalance get(free_balance): default map [ T::AccountId => T::Balance ];
+/// The amount of the balance of a given account that is exterally reserved; this can still get slashed, but gets slashed last of all.
+pub ReservedBalance get(reserved_balance): default map [ T::AccountId => T::Balance ];
+/// The fee to be paid for making a transaction; the base.
+pub TransactionBaseFee get(transaction_base_fee): required T::Balance;
+/// The fee to be paid for making a transaction; the per-byte portion.
+pub TransactionByteFee get(transaction_byte_fee): required T::Balance;
