@@ -54,7 +54,7 @@ const enumSet: CreateItemOptions = {
   description: `The enumeration sets.`,
   key: 'Balances EnumSet',
   params: [param('index', 'AccountIndex')],
-  type: 'AccountId'
+  type: ['AccountId']
 };
 
 const freeBalance: CreateItemOptions = {
