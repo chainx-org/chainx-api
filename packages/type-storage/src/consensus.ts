@@ -3,46 +3,24 @@
 // of the ISC license. See the LICENSE file for details.
 
 import { CreateItems, CreateItemOptions, Section } from '@polkadot/params/types';
-import { Storages, Storage$Sections } from './types';
+import { Storages, Storage$Sections } from '@polkadot/storage/types';
 
 import param from '@polkadot/params/param';
 import createSection from '@polkadot/params/section';
 
-const authorityAt: CreateItemOptions = {
-  description: 'Authority at a specific index',
-  isUnhashed: true,
-  key: ':auth:',
-  params: [
-    param('index', 'u32')
-  ],
-  type: 'AccountId'
-};
-
-const authorityCount: CreateItemOptions = {
-  description: 'The number of authorities',
-  isUnhashed: true,
-  key: ':auth:len',
+// @TODO 不确定是否存在这个方法
+const originalAuthorities: CreateItemOptions = {
+  description: 'Authorities set actual at the block execution start. IsSome only if the set has been changed.',
+  key: 'Consensus OriginalAuthorities',
   params: [],
-  type: 'u32'
-};
-
-const code: CreateItemOptions = {
-  description: 'The current runtime code',
-  isUnhashed: true,
-  key: ':code',
-  params: [],
-  type: 'Code'
+  type: 'SessionKey'
 };
 
 export default (name: Storage$Sections): Section<Storages, any, any> =>
   createSection(name)((createMethod: CreateItems<Storages>) => ({
     description: 'Consensus',
     public: {
-      authorityAt:
-        createMethod('authorityAt')(authorityAt),
-      authorityCount:
-        createMethod('authorityCount')(authorityCount),
-      code:
-        createMethod('code')(code)
+      originalAuthorities:
+        createMethod('originalAuthorities')(originalAuthorities)
     }
   }));

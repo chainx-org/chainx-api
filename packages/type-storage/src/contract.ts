@@ -9,64 +9,72 @@ import param from '@polkadot/params/param';
 import createSection from '@polkadot/params/section';
 
 const contractFee: CreateItemOptions = {
-  description: 'The fee required to create a contract.',
-  key: 'con:contract_fee',
+  description: `The fee required to create a contract. At least as big as staking's ReclaimRebate.`,
+  key: 'Contract ContractFee',
   params: [],
   type: 'Balance'
 };
 
 const callBaseFee: CreateItemOptions = {
-  description: 'The fee charged for a call into a contract.',
-  key: 'con:base_call_fee',
+  description: `The fee charged for a call into a contract.`,
+  key: 'Contract CallBaseFee',
   params: [],
   type: 'Gas'
 };
 
 const createBaseFee: CreateItemOptions = {
-  description: 'The fee charged for a create of a contract.',
-  key: 'con:base_create_fee',
+  description: `The fee charged for a create of a contract.`,
+  key: 'Contract CreateBaseFee',
   params: [],
   type: 'Gas'
 };
 
 const gasPrice: CreateItemOptions = {
-  description: 'The price of one unit of gas.',
-  key: 'con:gas_price',
+  description: `The price of one unit of gas.`,
+  key: 'Contract GasPrice',
   params: [],
   type: 'Balance'
 };
 
-const maxStackDepth: CreateItemOptions = {
-  description: 'The maximum nesting level of a call/create stack.',
-  key: 'con:max_depth',
+const maxDepth: CreateItemOptions = {
+  description: `The maximum nesting level of a call/create stack.`,
+  key: 'Contract MaxDepth',
   params: [],
   type: 'u32'
 };
 
+const blockGasLimit: CreateItemOptions = {
+  description: `The maximum amount of gas that could be expended per block.`,
+  key: 'Contract BlockGasLimit',
+  params: [],
+  type: 'Gas'
+};
+
+const gasSpent: CreateItemOptions = {
+  description: `Gas spent so far in this block.`,
+  key: 'Contract GasSpent',
+  params: [],
+  type: 'Gas'
+};
+
 const codeOf: CreateItemOptions = {
-  description: 'The code associated with an account.',
-  key: 'con:cod:',
-  params: [
-    param('who', 'AccountId')
-  ],
-  type: 'Code'
+  description: `The code associated with an account.`,
+  key: 'Contract CodeOf',
+  params: [param('who', 'AccountId')],
+  type: ['Code']
 };
 
 export default (name: Storage$Sections): Section<Storages, any, any> =>
   createSection(name)((createMethod: CreateItems<Storages>) => ({
     description: 'Contract',
     public: {
-      codeOf:
-        createMethod('codeOf')(codeOf),
-      contractFee:
-        createMethod('contractFee')(contractFee),
-      callBaseFee:
-        createMethod('callBaseFee')(callBaseFee),
-      createBaseFee:
-        createMethod('createBaseFee')(createBaseFee),
-      gasPrice:
-        createMethod('gasPrice')(gasPrice),
-      maxStackDepth:
-        createMethod('maxStackDepth')(maxStackDepth)
+      contractFee: createMethod('contractFee')(contractFee),
+      callBaseFee: createMethod('callBaseFee')(callBaseFee),
+      createBaseFee: createMethod('createBaseFee')(createBaseFee),
+      gasPrice: createMethod('gasPrice')(gasPrice),
+      maxDepth: createMethod('maxDepth')(maxDepth),
+      blockGasLimit: createMethod('blockGasLimit')(blockGasLimit),
+      gasSpent: createMethod('gasSpent')(gasSpent),
+      codeOf: createMethod('codeOf')(codeOf)
     }
   }));
