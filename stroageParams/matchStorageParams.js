@@ -2,7 +2,7 @@ const readline = require('readline');
 const path = require('path');
 const fs = require('fs');
 
-const moduleName = 'Democracy';
+const moduleName = 'Session';
 
 let filepath = path.join(__dirname, `./${moduleName}`);
 
@@ -24,7 +24,7 @@ rl.on('line', line => {
     description = matchDesc[1];
   }
 
-  const matchName = line.match(/pub\s(\w+)/) || line.match(/^(\w+)\s/);
+  const matchName = line.match(/pub\s(\w+)/) || line.match(/^(\w+)/);
   if (matchName && matchName[1]) {
     const matchType = line.match(/(\w+) ];/) || line.match(/(\w+);/);
     const matchVec = line.match(/(\w+)> ]/)
