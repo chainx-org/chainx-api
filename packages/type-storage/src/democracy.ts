@@ -67,14 +67,14 @@ const nextTally: CreateItemOptions = {
 const referendumInfoOf: CreateItemOptions = {
   description: `Information concerning any given referendum.`,
   key: 'Democracy ReferendumInfoOf',
-  params: [param('undefined', 'ReferendumIndex')],
+  params: [param('referendumIndex', 'ReferendumIndex')],
   type: ['BlockNumber', 'Proposal', 'VoteThreshold']
 };
 
 const votersFor: CreateItemOptions = {
   description: `Get the voters for the current proposal.`,
   key: 'Democracy VotersFor',
-  params: [param('undefined', 'ReferendumIndex')],
+  params: [param('referendumIndex', 'ReferendumIndex')],
   type: ['AccountId']
 };
 

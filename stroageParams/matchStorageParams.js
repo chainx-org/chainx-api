@@ -2,7 +2,7 @@ const readline = require('readline');
 const path = require('path');
 const fs = require('fs');
 
-const moduleName = 'Timestamp';
+const moduleName = 'Treasury';
 
 let filepath = path.join(__dirname, `./${moduleName}`);
 
