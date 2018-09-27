@@ -12,7 +12,7 @@
 
 ⊕ **new EventEmitterStatic**<`EventTypes`>(): `EventEmitter`<`EventTypes`>
 
-*Defined in /home/travis/build/polkadot-js/api/node_modules/eventemitter3/index.d.ts:57*
+*Defined in /Users/yznt/workspace/chainpool/chainx-api/node_modules/eventemitter3/index.d.ts:57*
 
 **Type parameters:**
 

@@ -29,6 +29,7 @@ const sessionsPerEra: CreateItemOptions = {
   type: 'BlockNumber'
 };
 
+// @TODO Perbill
 const sessionReward: CreateItemOptions = {
   description: `Maximum reward, per validator, that is provided per acceptable session.`,
   key: 'Staking SessionReward',
@@ -36,6 +37,7 @@ const sessionReward: CreateItemOptions = {
   type: 'Balance'
 };
 
+// @TODO Perbill
 const offlineSlash: CreateItemOptions = {
   description: `Slash, per validator that is taken for the first time they are found to be offline.`,
   key: 'Staking OfflineSlash',
