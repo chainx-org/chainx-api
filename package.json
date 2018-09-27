@@ -13,7 +13,7 @@
     "typescript": "^3.0.1"
   },
   "scripts": {
-    "build": "polkadot-dev-build-ts && polkadot-dev-build-docs",
+    "build": "polkadot-dev-build-ts",
     "build:htmldoc": "yarn clean && typedoc --theme default --out docs/html",
     "check": "tslint --project . && tsc --noEmit",
     "clean": "polkadot-dev-clean-build",
