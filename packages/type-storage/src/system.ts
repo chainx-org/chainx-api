@@ -8,87 +8,91 @@ import { Storages, Storage$Sections } from './types';
 import param from '@polkadot/params/param';
 import createSection from '@polkadot/params/section';
 
-const accountIndexOf: CreateItemOptions = {
-  description: 'The index of the given account',
-  key: 'sys:non',
-  params: [
-    param('who', 'AccountId')
-  ],
+const accountNonce: CreateItemOptions = {
+  description: ``,
+  key: 'System AccountNonce',
+  params: [param('who', 'AccountId')],
   type: 'AccountIndex'
 };
 
-const blockHashAt: CreateItemOptions = {
-  description: 'The blockHash for a specific number',
-  key: 'sys:old',
-  params: [
-    param('blockNumber', 'BlockNumber')
-  ],
-  type: 'Hash'
-};
-
-const extrinsicIndex: CreateItemOptions = {
-  description: 'The extrinsics index',
-  key: 'sys:xti',
+const extrinsicCount: CreateItemOptions = {
+  description: ``,
+  key: 'System ExtrinsicCount',
   params: [],
   type: 'u32'
 };
 
+const blockHash: CreateItemOptions = {
+  description: ``,
+  key: 'System BlockHash',
+  params: [param('blockNumber', 'BlockNumber')],
+  type: 'Hash'
+};
+
 const extrinsicData: CreateItemOptions = {
-  description: 'The data associated with an extrinsic',
-  key: 'sys:xtd',
-  params: [
-    param('extrinsic', 'u32')
-  ],
+  description: ``,
+  key: 'System ExtrinsicData',
+  params: [param('extrinsic', 'u32')],
   type: 'Bytes'
 };
 
-const blockNumber: CreateItemOptions = {
-  description: 'The current block number being processed',
-  key: 'sys:num',
+const randomSeed: CreateItemOptions = {
+  description: ``,
+  key: 'System RandomSeed',
+  params: [],
+  type: 'Hash'
+};
+
+// tslint:disable-next-line:variable-name
+const number: CreateItemOptions = {
+  description: 'The current block number being processed. Set by `execute_block`.',
+  key: 'System Number',
   params: [],
   type: 'BlockNumber'
 };
 
 const parentHash: CreateItemOptions = {
-  description: 'The parentHash for the current block',
-  key: 'sys:pha',
+  description: ``,
+  key: 'System ParentHash',
   params: [],
   type: 'Hash'
 };
 
 const extrinsicsRoot: CreateItemOptions = {
-  description: 'The extrinsicsRoot for the current block',
-  key: 'sys:txr',
+  description: ``,
+  key: 'System ExtrinsicsRoot',
   params: [],
   type: 'Hash'
 };
 
 const digest: CreateItemOptions = {
-  description: 'The digest for the current block',
-  key: 'sys:dig',
+  description: ``,
+  key: 'System Digest',
   params: [],
   type: 'Digest'
 };
+
+// EventRecord
+// const events: CreateItemOptions = {
+//   description: ``,
+//   key: 'System Events',
+//   params: [],
+//   type: ['EventRecord']
+// };
 
 export default (name: Storage$Sections): Section<Storages, any, any> =>
   createSection(name)((createMethod: CreateItems<Storages>) => ({
     description: 'System',
     public: {
-      blockHashAt:
-        createMethod('blockHashAt')(blockHashAt),
-      blockNumber:
-        createMethod('blockNumber')(blockNumber),
-      digest:
-        createMethod('digest')(digest),
-      extrinsicData:
-        createMethod('extrinsicData')(extrinsicData),
-      extrinsicIndex:
-        createMethod('extrinsicIndex')(extrinsicIndex),
-      extrinsicsRoot:
-        createMethod('extrinsicsRoot')(extrinsicsRoot),
-      accountIndexOf:
-        createMethod('accountIndexOf')(accountIndexOf),
-      parentHash:
-        createMethod('parentHash')(parentHash)
+      accountNonce: createMethod('accountNonce')(accountNonce),
+      extrinsicCount: createMethod('extrinsicCount')(extrinsicCount),
+      blockHash: createMethod('blockHash')(blockHash),
+      extrinsicData: createMethod('extrinsicData')(extrinsicData),
+      randomSeed: createMethod('randomSeed')(randomSeed),
+      number: createMethod('number')(number),
+      parentHash: createMethod('parentHash')(parentHash),
+      extrinsicsRoot: createMethod('extrinsicsRoot')(extrinsicsRoot),
+      digest: createMethod('digest')(digest)
+      // events: createMethod('events')(events)
     }
   }));
