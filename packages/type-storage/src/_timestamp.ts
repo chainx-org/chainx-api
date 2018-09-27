@@ -3,27 +3,27 @@
 // of the ISC license. See the LICENSE file for details.
 
 import { CreateItems, CreateItemOptions, Section } from '@polkadot/params/types';
-import { Storages, Storage$Sections } from './types';
+import { Storages, Storage$Sections } from '@polkadot/storage/types';
 
 import createSection from '@polkadot/params/section';
 
 const now: CreateItemOptions = {
-  description: `Current time for the current block.`,
-  key: 'Timestamp Now',
+  description: 'The current timestamp',
+  key: 'tim:val',
   params: [],
   type: 'Timestamp'
 };
 
 const blockPeriod: CreateItemOptions = {
-  description: `The minimum (and advised) period between blocks.`,
-  key: 'Timestamp BlockPeriod',
+  description: 'The minimum (and advised) period between blocks',
+  key: 'tim:block_period',
   params: [],
-  type: 'Timestamp'
+  type: 'u64'
 };
 
 const didUpdate: CreateItemOptions = {
-  description: `Did the timestamp get updated in this block?`,
-  key: 'Timestamp DidUpdate',
+  description: 'Did the timestamp update in this block',
+  key: 'tim:did',
   params: [],
   type: 'bool'
 };
@@ -32,8 +32,11 @@ export default (name: Storage$Sections): Section<Storages, any, any> =>
   createSection(name)((createMethod: CreateItems<Storages>) => ({
     description: 'Timestamp related entries',
     public: {
-      now: createMethod('now')(now),
-      blockPeriod: createMethod('blockPeriod')(blockPeriod),
-      didUpdate: createMethod('didUpdate')(didUpdate)
+      blockPeriod:
+        createMethod('blockPeriod')(blockPeriod),
+      now:
+        createMethod('now')(now),
+      didUpdate:
+        createMethod('didUpdate')(didUpdate)
     }
   }));
