@@ -8,7 +8,7 @@
 
 ▸ **state**(): [MockState](_mock_types_d_.md#mockstate)
 
-*Defined in [mock/state.ts:38](https://github.com/chainx-org/chainx-api/blob/615ff73/packages/api-provider/src/mock/state.ts#L38)*
+*Defined in [mock/state.ts:38](https://github.com/chainx-org/chainx-api/blob/30f27c6/packages/api-provider/src/mock/state.ts#L38)*
 
 **Returns:** [MockState](_mock_types_d_.md#mockstate)
 

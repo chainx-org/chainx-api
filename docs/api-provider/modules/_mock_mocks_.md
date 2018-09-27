@@ -8,7 +8,7 @@
 
 ▸ **mocks**(__namedParameters: *`object`*): `void`
 
-*Defined in [mock/mocks.ts:68](https://github.com/chainx-org/chainx-api/blob/615ff73/packages/api-provider/src/mock/mocks.ts#L68)*
+*Defined in [mock/mocks.ts:68](https://github.com/chainx-org/chainx-api/blob/30f27c6/packages/api-provider/src/mock/mocks.ts#L68)*
 
 **Parameters:**
 

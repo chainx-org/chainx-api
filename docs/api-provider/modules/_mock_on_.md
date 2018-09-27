@@ -8,7 +8,7 @@
 
 ▸ **on**(self: *[MockState](_mock_types_d_.md#mockstate)*, type: *[ProviderInterface$Emitted](_types_d_.md#providerinterface_emitted)*, sub: *[ProviderInterface$EmitCb](_types_d_.md#providerinterface_emitcb)*): `void`
 
-*Defined in [mock/on.ts:8](https://github.com/chainx-org/chainx-api/blob/615ff73/packages/api-provider/src/mock/on.ts#L8)*
+*Defined in [mock/on.ts:8](https://github.com/chainx-org/chainx-api/blob/30f27c6/packages/api-provider/src/mock/on.ts#L8)*
 
 **Parameters:**
 

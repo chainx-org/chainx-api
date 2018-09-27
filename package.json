@@ -18,7 +18,8 @@
     "check": "tslint --project . && tsc --noEmit",
     "clean": "polkadot-dev-clean-build",
     "postinstall": "polkadot-dev-yarn-only",
-    "test": "jest --coverage"
+    "test": "jest --coverage",
+    "rsync": "$ yarn build && cd packages/type-storage && yarn sync"
   },
   "devDependencies": {
     "@polkadot/dev": "^0.20.21",

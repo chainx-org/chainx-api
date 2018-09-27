@@ -8,7 +8,7 @@
 
 ▸ **encodeObject**(self: *[RpcCoderState](_coder_json_types_d_.md#rpccoderstate)*, method: *`string`*, params: *`Array`<`any`>*): [JsonRpcRequest](_types_d_.md#jsonrpcrequest)
 
-*Defined in [coder/json/encodeObject.ts:8](https://github.com/chainx-org/chainx-api/blob/615ff73/packages/api-provider/src/coder/json/encodeObject.ts#L8)*
+*Defined in [coder/json/encodeObject.ts:8](https://github.com/chainx-org/chainx-api/blob/30f27c6/packages/api-provider/src/coder/json/encodeObject.ts#L8)*
 
 **Parameters:**
 
