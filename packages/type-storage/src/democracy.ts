@@ -8,89 +8,80 @@ import { Storages, Storage$Sections } from './types';
 import param from '@polkadot/params/param';
 import createSection from '@polkadot/params/section';
 
-const proposalCount: CreateItemOptions = {
-  description: 'The number of (public) proposals that have been made so far',
-  key: 'dem:ppc',
+const publicPropCount: CreateItemOptions = {
+  description: `The number of (public) proposals that have been made so far.`,
+  key: 'Democracy PublicPropCount',
   params: [],
   type: 'PropIndex'
 };
 
-const proposals: CreateItemOptions = {
-  description: 'The public proposals. Unsorted.',
-  key: 'dem:pub',
+const publicProps: CreateItemOptions = {
+  description: `The public proposals. Unsorted.`,
+  key: 'Democracy PublicProps',
   params: [],
   type: [['PropIndex', 'Proposal', 'AccountId']]
 };
 
 const depositOf: CreateItemOptions = {
-  description: 'Those who have locked a deposit',
-  key: 'dem:dep:',
-  params: [
-    param('index', 'PropIndex')
-  ],
+  description: `Those who have locked a deposit.`,
+  key: 'Democracy DepositOf',
+  params: [param('undefined', 'PropIndex')],
   type: ['Balance', ['AccountId']]
 };
 
 const launchPeriod: CreateItemOptions = {
-  description: 'How often (in blocks) new public referenda are launched',
-  key: 'dem:lau',
+  description: `How often (in blocks) new public referenda are launched.`,
+  key: 'Democracy LaunchPeriod',
   params: [],
   type: 'BlockNumber'
 };
 
 const minimumDeposit: CreateItemOptions = {
-  description: 'The minimum amount as a deposit for a public referendum',
-  key: 'dem:min',
+  description: `The minimum amount to be used as a deposit for a public referendum proposal.`,
+  key: 'Democracy MinimumDeposit',
   params: [],
   type: 'Balance'
 };
 
 const votingPeriod: CreateItemOptions = {
-  description: 'How often (in blocks) to check for new votes',
-  key: 'dem:per',
+  description: `How often (in blocks) to check for new votes.`,
+  key: 'Democracy VotingPeriod',
   params: [],
   type: 'BlockNumber'
 };
 
 const referendumCount: CreateItemOptions = {
-  description: 'The number of referendums started so far',
-  key: 'dem:rco',
+  description: `The next free referendum index, aka the number of referendums started so far.`,
+  key: 'Democracy ReferendumCount',
   params: [],
   type: 'ReferendumIndex'
 };
 
 const nextTally: CreateItemOptions = {
-  description: 'The next referendum index that should be tallied',
-  key: 'dem:nxt',
+  description: `The next referendum index that should be tallied.`,
+  key: 'Democracy NextTally',
   params: [],
   type: 'ReferendumIndex'
 };
 
 const referendumInfoOf: CreateItemOptions = {
-  description: 'Details for a specific referendum',
-  key: 'dem:pro:',
-  params: [
-    param('referendum', 'ReferendumIndex')
-  ],
+  description: `Information concerning any given referendum.`,
+  key: 'Democracy ReferendumInfoOf',
+  params: [param('undefined', 'ReferendumIndex')],
   type: ['BlockNumber', 'Proposal', 'VoteThreshold']
 };
 
 const votersFor: CreateItemOptions = {
-  description: 'Get the voters for the current proposal',
-  key: 'dem:vtr:',
-  params: [
-    param('referendum', 'ReferendumIndex')
-  ],
+  description: `Get the voters for the current proposal.`,
+  key: 'Democracy VotersFor',
+  params: [param('undefined', 'ReferendumIndex')],
   type: ['AccountId']
 };
 
 const voteOf: CreateItemOptions = {
-  description: 'Get the vote for Account',
-  key: 'dem:vot:',
-  params: [
-    param('referendum', 'ReferendumIndex'),
-    param('who', 'AccountId')
-  ],
+  description: 'Get the vote, if Some, of `who`.',
+  key: 'Democracy VoteOf',
+  params: [],
   type: 'bool'
 };
 
@@ -98,27 +89,16 @@ export default (name: Storage$Sections): Section<Storages, any, any> =>
   createSection(name)((createMethod: CreateItems<Storages>) => ({
     description: 'Democracy',
     public: {
-      proposalCount:
-        createMethod('proposalCount')(proposalCount),
-      proposals:
-        createMethod('proposals')(proposals),
-      depositOf:
-        createMethod('depositOf')(depositOf),
-      launchPeriod:
-        createMethod('launchPeriod')(launchPeriod),
-      minimumDeposit:
-        createMethod('minimumDeposit')(minimumDeposit),
-      votingPeriod:
-        createMethod('votingPeriod')(votingPeriod),
-      referendumCount:
-        createMethod('referendumCount')(referendumCount),
-      nextTally:
-        createMethod('nextTally')(nextTally),
-      referendumInfoOf:
-        createMethod('referendumInfoOf')(referendumInfoOf),
-      votersFor:
-        createMethod('votersFor')(votersFor),
-      voteOf:
-        createMethod('voteOf')(voteOf)
+      publicPropCount: createMethod('publicPropCount')(publicPropCount),
+      publicProps: createMethod('publicProps')(publicProps),
+      depositOf: createMethod('depositOf')(depositOf),
+      launchPeriod: createMethod('launchPeriod')(launchPeriod),
+      minimumDeposit: createMethod('minimumDeposit')(minimumDeposit),
+      votingPeriod: createMethod('votingPeriod')(votingPeriod),
+      referendumCount: createMethod('referendumCount')(referendumCount),
+      nextTally: createMethod('nextTally')(nextTally),
+      referendumInfoOf: createMethod('referendumInfoOf')(referendumInfoOf),
+      votersFor: createMethod('votersFor')(votersFor),
+      voteOf: createMethod('voteOf')(voteOf)
     }
   }));

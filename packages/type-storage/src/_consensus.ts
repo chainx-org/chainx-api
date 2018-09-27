@@ -3,7 +3,7 @@
 // of the ISC license. See the LICENSE file for details.
 
 import { CreateItems, CreateItemOptions, Section } from '@polkadot/params/types';
-import { Storages, Storage$Sections } from './types';
+import { Storages, Storage$Sections } from '@polkadot/storage/types';
 
 import param from '@polkadot/params/param';
 import createSection from '@polkadot/params/section';
@@ -12,9 +12,7 @@ const authorityAt: CreateItemOptions = {
   description: 'Authority at a specific index',
   isUnhashed: true,
   key: ':auth:',
-  params: [
-    param('index', 'u32')
-  ],
+  params: [param('index', 'u32')],
   type: 'AccountId'
 };
 
@@ -38,11 +36,8 @@ export default (name: Storage$Sections): Section<Storages, any, any> =>
   createSection(name)((createMethod: CreateItems<Storages>) => ({
     description: 'Consensus',
     public: {
-      authorityAt:
-        createMethod('authorityAt')(authorityAt),
-      authorityCount:
-        createMethod('authorityCount')(authorityCount),
-      code:
-        createMethod('code')(code)
+      authorityAt: createMethod('authorityAt')(authorityAt),
+      authorityCount: createMethod('authorityCount')(authorityCount),
+      code: createMethod('code')(code)
     }
   }));
