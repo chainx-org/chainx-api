@@ -6,8 +6,8 @@ import u8aFromUtf8 from '@polkadot/util/u8a/fromUtf8';
 import u8aToUtf8 from '@polkadot/util/u8a/toUtf8';
 import u8aConcat from '@polkadot/util/u8a/concat';
 
-import CodecBase from './base/Base';
-import Length from './base/LengthCompact';
+import Base from './codec/Base';
+import Length from './codec/Length';
 
 // This is a string wrapper, along with the length. It is used both for strings as well
 // as stuff like documentation.
@@ -17,11 +17,15 @@ import Length from './base/LengthCompact';
 //   - Potentially we want a "TypeString" extension to this. Basically something that
 //     wraps the `Balance`, `T::AccountId`, etc. The reasoning - with a "TypeString"
 //     we can nicely strip types down like "T::AcountId" -> "AccountId"
-export default class String extends CodecBase<string> {
+export default class Text extends Base<string> {
   protected _length: Length;
 
-  constructor (value: string = '') {
-    super(value);
+  constructor (value: Text | string = '') {
+    super(
+      value instanceof Text
+        ? value.raw
+        : value.trim()
+    );
 
     this._length = new Length(value.length);
   }
@@ -37,11 +41,13 @@ export default class String extends CodecBase<string> {
       this._length.byteLength();
   }
 
-  fromJSON (input: any): String {
-    throw new Error('String::fromJSON: unimplemented');
+  fromJSON (input: any): Text {
+    this.raw = `${input}`;
+
+    return this;
   }
 
-  fromU8a (input: Uint8Array): String {
+  fromU8a (input: Uint8Array): Text {
     this._length.fromU8a(input);
 
     const length = this._length.toNumber();

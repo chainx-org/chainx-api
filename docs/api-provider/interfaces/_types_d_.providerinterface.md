@@ -16,7 +16,11 @@
 
 ▸ **isConnected**(): `boolean`
 
+<<<<<<< HEAD
 *Defined in [types.d.ts:45](https://github.com/chainx-org/chainx-api/blob/30f27c6/packages/api-provider/src/types.d.ts#L45)*
+=======
+*Defined in [types.d.ts:45](https://github.com/polkadot-js/api/blob/dfd2e70/packages/api-provider/src/types.d.ts#L45)*
+>>>>>>> upstream/master
 
 **Returns:** `boolean`
 
@@ -27,7 +31,11 @@ ___
 
 ▸ **on**(type: *[ProviderInterface$Emitted](../modules/_types_d_.md#providerinterface_emitted)*, sub: *[ProviderInterface$EmitCb](../modules/_types_d_.md#providerinterface_emitcb)*): `void`
 
+<<<<<<< HEAD
 *Defined in [types.d.ts:46](https://github.com/chainx-org/chainx-api/blob/30f27c6/packages/api-provider/src/types.d.ts#L46)*
+=======
+*Defined in [types.d.ts:46](https://github.com/polkadot-js/api/blob/dfd2e70/packages/api-provider/src/types.d.ts#L46)*
+>>>>>>> upstream/master
 
 **Parameters:**
 
@@ -45,7 +53,11 @@ ___
 
 ▸ **send**(method: *`string`*, params: *`Array`<`any`>*): `Promise`<`any`>
 
+<<<<<<< HEAD
 *Defined in [types.d.ts:47](https://github.com/chainx-org/chainx-api/blob/30f27c6/packages/api-provider/src/types.d.ts#L47)*
+=======
+*Defined in [types.d.ts:47](https://github.com/polkadot-js/api/blob/dfd2e70/packages/api-provider/src/types.d.ts#L47)*
+>>>>>>> upstream/master
 
 **Parameters:**
 
@@ -63,7 +75,11 @@ ___
 
 ▸ **subscribe**(type: *`string`*, method: *`string`*, params: *`Array`<`any`>*, cb: *[ProviderInterface$Callback](../modules/_types_d_.md#providerinterface_callback)*): `Promise`<`number`>
 
+<<<<<<< HEAD
 *Defined in [types.d.ts:48](https://github.com/chainx-org/chainx-api/blob/30f27c6/packages/api-provider/src/types.d.ts#L48)*
+=======
+*Defined in [types.d.ts:48](https://github.com/polkadot-js/api/blob/dfd2e70/packages/api-provider/src/types.d.ts#L48)*
+>>>>>>> upstream/master
 
 **Parameters:**
 
@@ -83,7 +99,11 @@ ___
 
 ▸ **unsubscribe**(type: *`string`*, method: *`string`*, id: *`number`*): `Promise`<`boolean`>
 
+<<<<<<< HEAD
 *Defined in [types.d.ts:49](https://github.com/chainx-org/chainx-api/blob/30f27c6/packages/api-provider/src/types.d.ts#L49)*
+=======
+*Defined in [types.d.ts:49](https://github.com/polkadot-js/api/blob/dfd2e70/packages/api-provider/src/types.d.ts#L49)*
+>>>>>>> upstream/master
 
 **Parameters:**
 

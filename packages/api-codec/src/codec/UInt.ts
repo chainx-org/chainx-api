@@ -2,19 +2,20 @@
 // This software may be modified and distributed under the terms
 // of the ISC license. See the LICENSE file for details.
 
+import { AnyNumber } from '../types';
+
 import BN from 'bn.js';
 import isHex from '@polkadot/util/is/hex';
+import isString from '@polkadot/util/is/string';
 import bnToBn from '@polkadot/util/bn/toBn';
 import bnToHex from '@polkadot/util/bn/toHex';
 import bnToU8a from '@polkadot/util/bn/toU8a';
 import hexToBn from '@polkadot/util/hex/toBn';
 import u8aToBn from '@polkadot/util/u8a/toBn';
 
-import CodecBase from './Base';
+import Base from './Base';
 
-type BitLength = 8 | 16 | 32 | 64 | 128;
-
-const DEFAULT_VALUE = new BN(0);
+type BitLength = 8 | 16 | 32 | 64 | 128 | 256;
 
 // A generic number codec. For Substrate all numbers are LE encoded, this handles the encoding
 // and decoding of those numbers. Upon construction the bitLength is provided and any additional
@@ -22,33 +23,47 @@ const DEFAULT_VALUE = new BN(0);
 //
 // TODO:
 //   - Apart from encoding/decoding we don't actuall keep check on the sizes, is this good enough?
-export default class CodecNumber extends CodecBase<BN> {
+export default class UInt extends Base<BN> {
   private _bitLength: BitLength;
 
-  constructor (value: BN | number = DEFAULT_VALUE, bitLength: BitLength = 64) {
+  constructor (value: AnyNumber = 0, bitLength: BitLength = 64) {
     super(
-      bnToBn(value)
+      UInt.decode(value)
     );
 
     this._bitLength = bitLength;
+  }
+
+  static decode (value: AnyNumber): BN {
+    if (value instanceof UInt) {
+      return value.raw;
+    } else if (isHex(value)) {
+      return hexToBn(value as string);
+    } else if (isString(value)) {
+      return new BN(value, 10);
+    }
+
+    return bnToBn(value);
   }
 
   byteLength (): number {
     return this._bitLength / 8;
   }
 
-  fromJSON (input: any): CodecNumber {
-    this.raw = isHex(input)
-      ? hexToBn(input)
-      : new BN(input);
+  fromJSON (input: any): UInt {
+    this.raw = UInt.decode(input);
 
     return this;
   }
 
-  fromU8a (input: Uint8Array): CodecNumber {
+  fromU8a (input: Uint8Array): UInt {
     this.raw = u8aToBn(input.subarray(0, this.byteLength()), true);
 
     return this;
+  }
+
+  toHex (): string {
+    return bnToHex(this.raw, this._bitLength);
   }
 
   toJSON (): any {
@@ -60,7 +75,7 @@ export default class CodecNumber extends CodecBase<BN> {
   }
 
   toString (): string {
-    return bnToHex(this.raw, this._bitLength);
+    return this.toHex();
   }
 
   toBn (): BN {

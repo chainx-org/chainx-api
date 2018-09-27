@@ -5,9 +5,12 @@ The WebSocket Provider allows sending requests using WebSocket. Unlike the [Http
 ```javascript
 import createApi from '@polkadot/api';
 import WsProvider from '@polkadot/api-provider/ws';
+
 const provider = new WsProvider('ws://127.0.0.1:9944');
 const api = createApi(provider);
 ```
+
+.
 *__example__*: ```javascript
 import createApi from '@polkadot/api';
 import WsProvider from '@polkadot/api-provider/ws';
@@ -38,7 +41,11 @@ const api = createApi(provider);
 
 ⊕ **new WsProvider**(endpoint: *`string`*, autoConnect?: *`boolean`*): [WsProvider](_ws_index_.wsprovider.md)
 
+<<<<<<< HEAD
 *Defined in [ws/index.ts:69](https://github.com/chainx-org/chainx-api/blob/30f27c6/packages/api-provider/src/ws/index.ts#L69)*
+=======
+*Defined in [ws/index.ts:69](https://github.com/polkadot-js/api/blob/dfd2e70/packages/api-provider/src/ws/index.ts#L69)*
+>>>>>>> upstream/master
 
 **Parameters:**
 
@@ -95,7 +102,11 @@ ___
 
 ▸ **connect**(): `void`
 
+<<<<<<< HEAD
 *Defined in [ws/index.ts:99](https://github.com/chainx-org/chainx-api/blob/30f27c6/packages/api-provider/src/ws/index.ts#L99)*
+=======
+*Defined in [ws/index.ts:99](https://github.com/polkadot-js/api/blob/dfd2e70/packages/api-provider/src/ws/index.ts#L99)*
+>>>>>>> upstream/master
 
 The [WsProvider](_ws_index_.wsprovider.md) connects automatically by default. if you decided otherwise, you may connect manually using this method.
 
@@ -145,7 +156,11 @@ ___
 
 ▸ **isConnected**(): `boolean`
 
+<<<<<<< HEAD
 *Defined in [ws/index.ts:116](https://github.com/chainx-org/chainx-api/blob/30f27c6/packages/api-provider/src/ws/index.ts#L116)*
+=======
+*Defined in [ws/index.ts:116](https://github.com/polkadot-js/api/blob/dfd2e70/packages/api-provider/src/ws/index.ts#L116)*
+>>>>>>> upstream/master
 
 Whether the node is connected or not.
 
@@ -225,7 +240,11 @@ ___
 
 *Overrides EventEmitter.on*
 
+<<<<<<< HEAD
 *Defined in [ws/index.ts:126](https://github.com/chainx-org/chainx-api/blob/30f27c6/packages/api-provider/src/ws/index.ts#L126)*
+=======
+*Defined in [ws/index.ts:126](https://github.com/polkadot-js/api/blob/dfd2e70/packages/api-provider/src/ws/index.ts#L126)*
+>>>>>>> upstream/master
 
 Listens on events after having subscribed using the [subscribe](_ws_index_.wsprovider.md#subscribe) function.
 
@@ -314,7 +333,11 @@ ___
 
 ▸ **send**(method: *`string`*, params: *`Array`<`any`>*, subscription?: *`SubscriptionHandler`*): `Promise`<`any`>
 
+<<<<<<< HEAD
 *Defined in [ws/index.ts:130](https://github.com/chainx-org/chainx-api/blob/30f27c6/packages/api-provider/src/ws/index.ts#L130)*
+=======
+*Defined in [ws/index.ts:130](https://github.com/polkadot-js/api/blob/dfd2e70/packages/api-provider/src/ws/index.ts#L130)*
+>>>>>>> upstream/master
 
 **Parameters:**
 
@@ -333,12 +356,17 @@ ___
 
 ▸ **subscribe**(type: *`string`*, method: *`string`*, params: *`Array`<`any`>*, callback: *[ProviderInterface$Callback](../modules/_types_d_.md#providerinterface_callback)*): `Promise`<`number`>
 
+<<<<<<< HEAD
 *Defined in [ws/index.ts:182](https://github.com/chainx-org/chainx-api/blob/30f27c6/packages/api-provider/src/ws/index.ts#L182)*
+=======
+*Defined in [ws/index.ts:183](https://github.com/polkadot-js/api/blob/dfd2e70/packages/api-provider/src/ws/index.ts#L183)*
+>>>>>>> upstream/master
 
 Allows subscribing to a specific event.
 *__example__*: ```javascript
-const provider = new WsProvider('ws://127.0.0.1:9944')
-const api = createApi(provider)
+const provider = new WsProvider('ws://127.0.0.1:9944');
+const api = createApi(provider);
+
 api.state.storage([[storage.staking.public.freeBalanceOf, <Address>]], (_, values) => {
   console.log(values)
 }).then((subscriptionId) => {
@@ -356,7 +384,7 @@ api.state.storage([[storage.staking.public.freeBalanceOf, <Address>]], (_, value
 | callback | [ProviderInterface$Callback](../modules/_types_d_.md#providerinterface_callback) |  Callback |
 
 **Returns:** `Promise`<`number`>
-Promise resolving to the dd of the subscription you can use with [[unsubscribe]]
+Promise resolving to the dd of the subscription you can use with [[unsubscribe]].
 
 ___
 <a id="unsubscribe"></a>
@@ -365,7 +393,11 @@ ___
 
 ▸ **unsubscribe**(type: *`string`*, method: *`string`*, id: *`number`*): `Promise`<`boolean`>
 
+<<<<<<< HEAD
 *Defined in [ws/index.ts:191](https://github.com/chainx-org/chainx-api/blob/30f27c6/packages/api-provider/src/ws/index.ts#L191)*
+=======
+*Defined in [ws/index.ts:192](https://github.com/polkadot-js/api/blob/dfd2e70/packages/api-provider/src/ws/index.ts#L192)*
+>>>>>>> upstream/master
 
 Allows unsubscribing to subscriptions made with [subscribe](_ws_index_.wsprovider.md#subscribe).
 

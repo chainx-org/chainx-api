@@ -25,7 +25,11 @@ const rxapi = new RxApi(provider);
 
 ⊕ **new RxApi**(provider?: *`ProviderInterface`*): [RxApi](_index_.rxapi.md)
 
+<<<<<<< HEAD
 *Defined in [index.ts:43](https://github.com/chainx-org/chainx-api/blob/30f27c6/packages/api-rx/src/index.ts#L43)*
+=======
+*Defined in [index.ts:43](https://github.com/polkadot-js/api/blob/dfd2e70/packages/api-rx/src/index.ts#L43)*
+>>>>>>> upstream/master
 
 **Parameters:**
 
@@ -45,7 +49,11 @@ ___
 
 **● author**: *[RxApiInterface$Section](../modules/_types_d_.md#rxapiinterface_section)*
 
+<<<<<<< HEAD
 *Defined in [index.ts:40](https://github.com/chainx-org/chainx-api/blob/30f27c6/packages/api-rx/src/index.ts#L40)*
+=======
+*Defined in [index.ts:40](https://github.com/polkadot-js/api/blob/dfd2e70/packages/api-rx/src/index.ts#L40)*
+>>>>>>> upstream/master
 
 ___
 <a id="chain"></a>
@@ -54,7 +62,11 @@ ___
 
 **● chain**: *[RxApiInterface$Section](../modules/_types_d_.md#rxapiinterface_section)*
 
+<<<<<<< HEAD
 *Defined in [index.ts:41](https://github.com/chainx-org/chainx-api/blob/30f27c6/packages/api-rx/src/index.ts#L41)*
+=======
+*Defined in [index.ts:41](https://github.com/polkadot-js/api/blob/dfd2e70/packages/api-rx/src/index.ts#L41)*
+>>>>>>> upstream/master
 
 ___
 <a id="state"></a>
@@ -63,7 +75,11 @@ ___
 
 **● state**: *[RxApiInterface$Section](../modules/_types_d_.md#rxapiinterface_section)*
 
+<<<<<<< HEAD
 *Defined in [index.ts:42](https://github.com/chainx-org/chainx-api/blob/30f27c6/packages/api-rx/src/index.ts#L42)*
+=======
+*Defined in [index.ts:42](https://github.com/polkadot-js/api/blob/dfd2e70/packages/api-rx/src/index.ts#L42)*
+>>>>>>> upstream/master
 
 ___
 <a id="system"></a>
@@ -72,7 +88,11 @@ ___
 
 **● system**: *[RxApiInterface$Section](../modules/_types_d_.md#rxapiinterface_section)*
 
+<<<<<<< HEAD
 *Defined in [index.ts:43](https://github.com/chainx-org/chainx-api/blob/30f27c6/packages/api-rx/src/index.ts#L43)*
+=======
+*Defined in [index.ts:43](https://github.com/polkadot-js/api/blob/dfd2e70/packages/api-rx/src/index.ts#L43)*
+>>>>>>> upstream/master
 
 ___
 
@@ -84,7 +104,11 @@ ___
 
 ▸ **isConnected**(): `BehaviorSubject`<`boolean`>
 
+<<<<<<< HEAD
 *Defined in [index.ts:62](https://github.com/chainx-org/chainx-api/blob/30f27c6/packages/api-rx/src/index.ts#L62)*
+=======
+*Defined in [index.ts:62](https://github.com/polkadot-js/api/blob/dfd2e70/packages/api-rx/src/index.ts#L62)*
+>>>>>>> upstream/master
 
 **Returns:** `BehaviorSubject`<`boolean`>
 

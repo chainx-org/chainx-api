@@ -8,7 +8,11 @@
 
 **Ƭ MockState**: *`object`*
 
+<<<<<<< HEAD
 *Defined in [mock/types.d.ts:27](https://github.com/chainx-org/chainx-api/blob/30f27c6/packages/api-provider/src/mock/types.d.ts#L27)*
+=======
+*Defined in [mock/types.d.ts:27](https://github.com/polkadot-js/api/blob/dfd2e70/packages/api-provider/src/mock/types.d.ts#L27)*
+>>>>>>> upstream/master
 
 #### Type declaration
 
@@ -19,7 +23,11 @@ ___
 
 **Ƭ MockState$Requests**: *`object`*
 
+<<<<<<< HEAD
 *Defined in [mock/types.d.ts:23](https://github.com/chainx-org/chainx-api/blob/30f27c6/packages/api-provider/src/mock/types.d.ts#L23)*
+=======
+*Defined in [mock/types.d.ts:23](https://github.com/polkadot-js/api/blob/dfd2e70/packages/api-provider/src/mock/types.d.ts#L23)*
+>>>>>>> upstream/master
 
 #### Type declaration
 
@@ -43,7 +51,11 @@ ___
 
 **Ƭ MockState$Storage**: *`object`*
 
+<<<<<<< HEAD
 *Defined in [mock/types.d.ts:19](https://github.com/chainx-org/chainx-api/blob/30f27c6/packages/api-provider/src/mock/types.d.ts#L19)*
+=======
+*Defined in [mock/types.d.ts:19](https://github.com/polkadot-js/api/blob/dfd2e70/packages/api-provider/src/mock/types.d.ts#L19)*
+>>>>>>> upstream/master
 
 #### Type declaration
 
@@ -56,7 +68,11 @@ ___
 
 **Ƭ MockState$Subscription$Callback**: *`function`*
 
+<<<<<<< HEAD
 *Defined in [mock/types.d.ts:8](https://github.com/chainx-org/chainx-api/blob/30f27c6/packages/api-provider/src/mock/types.d.ts#L8)*
+=======
+*Defined in [mock/types.d.ts:8](https://github.com/polkadot-js/api/blob/dfd2e70/packages/api-provider/src/mock/types.d.ts#L8)*
+>>>>>>> upstream/master
 
 #### Type declaration
 ▸(error: * `Error` &#124; `null`*, value: *`any`*): `void`
@@ -77,7 +93,11 @@ ___
 
 **Ƭ MockState$Subscriptions**: *`object`*
 
+<<<<<<< HEAD
 *Defined in [mock/types.d.ts:10](https://github.com/chainx-org/chainx-api/blob/30f27c6/packages/api-provider/src/mock/types.d.ts#L10)*
+=======
+*Defined in [mock/types.d.ts:10](https://github.com/polkadot-js/api/blob/dfd2e70/packages/api-provider/src/mock/types.d.ts#L10)*
+>>>>>>> upstream/master
 
 #### Type declaration
 
