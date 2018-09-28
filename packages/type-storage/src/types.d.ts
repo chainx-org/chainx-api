@@ -14,7 +14,6 @@ export type Storages = {
   council: Section<Storages, any, any>,
   councilVoting: Section<Storages, any, any>,
   democracy: Section<Storages, any, any>,
-  parachains: Section<Storages, any, any>,
   session: Section<Storages, any, any>,
   staking: Section<Storages, any, any>,
   system: Section<Storages, any, any>,

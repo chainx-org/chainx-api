@@ -37,13 +37,4 @@ describe('extrinsic', () => {
       section: 'timestamp'
     });
   });
-
-  it('decodes poc-2/latest extrinsic', () => {
-    expect(
-      decode(extrinsics[1]).extrinsic
-    ).toMatchObject({
-      name: 'setHeads',
-      section: 'parachains'
-    });
-  });
 });

@@ -9,7 +9,6 @@ import council from './council';
 import councilVoting from './councilVoting';
 import democracy from './democracy';
 import session from './session';
-import parachains from './parachains';
 import staking from './staking';
 import timestamp from './timestamp';
 import treasury from './treasury';
@@ -23,7 +22,6 @@ const extrinsics: Extrinsics = {
   democracy: democracy('democracy', 5),
   council: council('council', 6),
   councilVoting: councilVoting('councilVoting', 7),
-  parachains: parachains('parachains', 8)
 };
 
 export default extrinsics;
