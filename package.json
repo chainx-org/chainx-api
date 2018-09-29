@@ -19,7 +19,7 @@
     "clean": "polkadot-dev-clean-build",
     "postinstall": "polkadot-dev-yarn-only",
     "test": "jest --coverage",
-    "rsync": "yarn build && cd packages/type-storage && yarn sync && cd ../type-extrinsics && yarn sync && cd ../type-params && yarn sync"
+    "rsync": "yarn build && cd packages/type-storage && yarn sync && cd ../type-extrinsics && yarn sync && cd ../type-params && yarn sync && cd ../type-jsonrpc && yarn sync"
   },
   "devDependencies": {
     "@polkadot/dev": "^0.20.21",

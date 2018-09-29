@@ -6,6 +6,9 @@
   "engines": {
     "node": ">=6.4"
   },
+  "scripts": {
+    "sync": "rsync -avzr --delete build/ ../../../poc-chainx/node_modules/@polkadot/jsonrpc/"
+  },
   "publishConfig": {
     "access": "public",
     "registry": "https://registry.npmjs.org"
