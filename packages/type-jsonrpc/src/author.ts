@@ -8,25 +8,42 @@ import { Interfaces, Interface$Sections } from './types';
 import param from '@polkadot/params/param';
 import createSection from '@polkadot/params/section';
 
+const submitRichExtrinsic: CreateItemOptions = {
+  isSigned: true,
+  description: 'Submit extrinsic for inclusion in block',
+  params: [param('extrinsic', 'Bytes')],
+  type: 'Hash'
+};
+
+const submitExtrinsic: CreateItemOptions = {
+  isSigned: true,
+  description: 'Submit a fully formatted extrinsic for block inclusion',
+  params: [param('bytes', 'Bytes')],
+  type: 'Hash'
+};
+
 const pendingExtrinsics: CreateItemOptions = {
   description: 'Returns all pending extrinsics, potentially grouped by sender',
   params: [],
   type: 'PrendingExtrinsics'
 };
 
-const submitExtrinsic: CreateItemOptions = {
-  isSigned: true,
-  description: 'Submit a fully formatted extrinsic for block inclusion',
-  params: [
-    param('extrinsic', 'Bytes')
+const extrinsicUpdate: CreateItemOptions = {
+  description: '',
+  subscribe: [
+    'author_submitAndWatchExtrinsic',
+    'author_unwatchExtrinsic'
   ],
+  params: [],
   type: 'Hash'
 };
 
 const privateMethods: CreateItemOptionsMap = {};
 
 const publicMethods: CreateItemOptionsMap = {
-  pendingExtrinsics, submitExtrinsic
+  submitRichExtrinsic,
+  submitExtrinsic,
+  pendingExtrinsics
 };
 
 export type PrivateMethods = typeof privateMethods;
@@ -38,9 +55,12 @@ export type PublicMethods = typeof publicMethods;
 export default (name: Interface$Sections): Section<Interfaces, PrivateMethods, PublicMethods> =>
   createSection(name)((createMethod: CreateItems<Interfaces>) => ({
     description: 'Substrate authoring RPC API',
-    public: Object.keys(publicMethods).reduce((result, key) => {
-      result[key] = createMethod(key)(publicMethods[key]);
+    public: Object.keys(publicMethods).reduce(
+      (result, key) => {
+        result[key] = createMethod(key)(publicMethods[key]);
 
-      return result;
-    }, {} as SectionItems<Interfaces, PublicMethods>)
+        return result;
+      },
+      {} as SectionItems<Interfaces, PublicMethods>
+    )
   }));

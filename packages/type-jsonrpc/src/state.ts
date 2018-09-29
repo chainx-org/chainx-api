@@ -10,23 +10,53 @@ import createSection from '@polkadot/params/section';
 
 const call: CreateItemOptions = {
   description: 'Perform a call to a builtin on the chain',
-  params: [
-    param('method', 'String'),
-    param('data', 'Bytes')
-  ],
+  params: [param('method', 'String'), param('data', 'Bytes')],
   type: 'Bytes'
 };
 
 const callAt: CreateItemOptions = {
   description: 'Perform a call to a builtin on the chain (At block)',
-  params: [
-    param('method', 'String'),
-    param('data', 'Bytes'),
-    param('block', 'Hash')
-  ],
+  params: [param('method', 'String'), param('data', 'Bytes'), param('block', 'Hash')],
   type: 'Bytes'
 };
 
+const getStorage: CreateItemOptions = {
+  description: 'Retrieves the storage for a key',
+  params: [param('key', 'StorageKey')],
+  type: 'StorageResult'
+};
+
+const getStorageAt: CreateItemOptions = {
+  description: 'Retrieves the storage for a key at a specific block',
+  params: [param('key', 'Bytes'), param('block', 'Hash')],
+  type: 'Bytes'
+};
+
+const getStorageHash: CreateItemOptions = {
+  description: 'Retrieves the storage hash',
+  params: [param('key', 'Bytes')],
+  type: 'Hash'
+};
+
+const getStorageHashAt: CreateItemOptions = {
+  description: 'Retrieves the storage hash at a specific block',
+  params: [param('key', 'Bytes'), param('block', 'Hash')],
+  type: 'Hash'
+};
+
+const getStorageSize: CreateItemOptions = {
+  description: 'Retrieves the storage size',
+  params: [param('key', 'Bytes')],
+  type: 'u64'
+};
+
+const getStorageSizeAt: CreateItemOptions = {
+  description: 'Retrieves the storage size at a specific block',
+  params: [param('key', 'Bytes'), param('block', 'Hash')],
+  type: 'u64'
+};
+
+// @TODO
 const getMetadata: CreateItemOptions = {
   description: 'Returns the runtime metadata',
   params: [],
@@ -35,79 +65,37 @@ const getMetadata: CreateItemOptions = {
 
 const getMetadataAt: CreateItemOptions = {
   description: 'Returns the runtime metadata',
-  params: [
-    param('block', 'Hash')
-  ],
+  params: [param('block', 'Hash')],
   type: 'MetaData'
 };
 
-const getStorage: CreateItemOptions = {
-  description: 'Retrieves the storage for a key',
-  params: [
-    param('key', 'StorageKey')
-  ],
-  type: 'StorageResult'
-};
-
-const getStorageAt: CreateItemOptions = {
-  description: 'Retrieves the storage for a key at a specific block',
-  params: [
-    param('key', 'Bytes'),
-    param('block', 'Hash')
-  ],
-  type: 'Bytes'
-};
-
-const getStorageHash: CreateItemOptions = {
-  description: 'Retrieves the storage hash',
-  params: [
-    param('key', 'Bytes')
-  ],
-  type: 'Hash'
-};
-
-const getStorageHashAt: CreateItemOptions = {
-  description: 'Retrieves the storage hash at a specific block',
-  params: [
-    param('key', 'Bytes'),
-    param('block', 'Hash')
-  ],
-  type: 'Hash'
-};
-
-const getStorageSize: CreateItemOptions = {
-  description: 'Retrieves the storage size',
-  params: [
-    param('key', 'Bytes')
-  ],
-  type: 'u64'
-};
-
-const getStorageSizeAt: CreateItemOptions = {
-  description: 'Retrieves the storage size at a specific block',
-  params: [
-    param('key', 'Bytes'),
-    param('block', 'Hash')
-  ],
-  type: 'u64'
+// @TODO 测试
+const queryStorage: CreateItemOptions = {
+  description: 'Subsequent values in the vector represent changes to the previous state (diffs).',
+  params: [param('key', 'Bytes'), param('hash', 'Hash'), param('block', 'Hash')],
+  type: 'MetaData'
 };
 
 const storage: CreateItemOptions = {
   description: 'Subscribes to storage changes for the provided keys',
-  subscribe: [
-    'state_subscribeStorage',
-    'state_unsubscribeStorage'
-  ],
-  params: [
-    param('keys', ['StorageKey'])
-  ],
+  subscribe: ['state_subscribeStorage', 'state_unsubscribeStorage'],
+  params: [param('keys', ['StorageKey'])],
   type: 'StorageResultSet'
 };
 
 const privateMethods: CreateItemOptionsMap = {};
 
 const publicMethods: CreateItemOptionsMap = {
-  call, callAt, getStorage, getStorageAt, getStorageHash, getStorageHashAt, getStorageSize, getStorageSizeAt, storage
+  call,
+  callAt,
+  getStorage,
+  getStorageAt,
+  getStorageHash,
+  getStorageHashAt,
+  getStorageSize,
+  getStorageSizeAt,
+  queryStorage,
+  storage
 };
 
 export type PrivateMethods = typeof privateMethods;
@@ -120,27 +108,17 @@ export default (name: Interface$Sections): Section<Interfaces, PrivateMethods, P
   createSection(name)((createMethod: CreateItems<Interfaces>) => ({
     description: 'Query of state',
     public: {
-      call:
-        createMethod('call')(call),
-      callAt:
-        createMethod('callAt')(callAt),
-      getMetadata:
-        createMethod('getMetadata')(getMetadata),
-      getMetadataAt:
-        createMethod('getMetadataAt')(getMetadataAt),
-      getStorage:
-        createMethod('getStorage')(getStorage),
-      getStorageAt:
-        createMethod('getStorageAt')(getStorageAt),
-      getStorageHash:
-        createMethod('getStorageHash')(getStorageHash),
-      getStorageHashAt:
-        createMethod('getStrorageHashAt')(getStorageHashAt),
-      getStorageSize:
-        createMethod('getStorageSize')(getStorageSize),
-      getStorageSizeAt:
-        createMethod('getStorageSizeAt')(getStorageSizeAt),
-      storage:
-        createMethod('storage')(storage)
+      call: createMethod('call')(call),
+      callAt: createMethod('callAt')(callAt),
+      getMetadata: createMethod('getMetadata')(getMetadata),
+      getMetadataAt: createMethod('getMetadataAt')(getMetadataAt),
+      getStorage: createMethod('getStorage')(getStorage),
+      getStorageAt: createMethod('getStorageAt')(getStorageAt),
+      getStorageHash: createMethod('getStorageHash')(getStorageHash),
+      getStorageHashAt: createMethod('getStrorageHashAt')(getStorageHashAt),
+      getStorageSize: createMethod('getStorageSize')(getStorageSize),
+      getStorageSizeAt: createMethod('getStorageSizeAt')(getStorageSizeAt),
+      queryStorage: createMethod('queryStorage')(queryStorage),
+      storage: createMethod('storage')(storage)
     }
   }));

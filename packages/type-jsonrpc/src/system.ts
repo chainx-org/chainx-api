@@ -28,7 +28,9 @@ const version: CreateItemOptions = {
 const privateMethods: CreateItemOptionsMap = {};
 
 const publicMethods: CreateItemOptionsMap = {
-  chain, name, version
+  chain,
+  name,
+  version
 };
 
 export type PrivateMethods = typeof privateMethods;
@@ -41,11 +43,8 @@ export default (sname: Interface$Sections): Section<Interfaces, PrivateMethods, 
   createSection(sname)((createMethod: CreateItems<Interfaces>) => ({
     description: 'Methods to retrieve system info',
     public: {
-      chain:
-        createMethod('chain')(chain),
-      name:
-        createMethod('name')(name),
-      version:
-        createMethod('version')(version)
+      chain: createMethod('chain')(chain),
+      name: createMethod('name')(name),
+      version: createMethod('version')(version)
     }
   }));
