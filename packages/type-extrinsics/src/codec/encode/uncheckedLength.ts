@@ -11,13 +11,14 @@ import { Extrinsics } from '../../types';
 import encodeUnchecked from './unchecked';
 import encodeLength from './length';
 
-export default function uncheckedLength (pair: KeyringPair, index: number | BN, extrinsic: SectionItem<Extrinsics>, values: Array<any>, version: EncodingVersions = 'latest'): UncheckedRaw {
+export default function uncheckedLength (pair: KeyringPair, index: number | BN, extrinsic: SectionItem<Extrinsics>, values: Array<any>, hash: Uint8Array, version: EncodingVersions = 'latest'): UncheckedRaw {
   return encodeLength(
     encodeUnchecked(
       pair,
       index,
       extrinsic,
       values,
+      hash,
       version
     )
   );

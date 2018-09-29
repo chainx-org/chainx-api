@@ -13,18 +13,31 @@ import u8aConcat from '@polkadot/util/u8a/concat';
 import encode from './index';
 import prefixes from './prefixes';
 import encodeExtrinsic from './extrinsic';
+import encodeParams from '@polkadot/params/encode';
+import bnToU8a from '@polkadot/util/bn/toU8a';
 
-export default function unchecked (pair: KeyringPair, index: number | BN, extrinsic: SectionItem<Extrinsics>, values: Array<any>, version: EncodingVersions = 'latest'): UncheckedRaw {
-  const message = encodeExtrinsic(extrinsic, values, index, version);
-  const signature = pair.sign(message);
+export default function unchecked (
+  pair: KeyringPair,
+  index: number | BN,
+  extrinsic: SectionItem<Extrinsics>,
+  values: Array<any>,
+  hash: Uint8Array,
+  version: EncodingVersions = 'latest'
+): UncheckedRaw {
+  // const message = encodeExtrinsic(extrinsic, values, index, version);
+  const era = prefixes.era;
+  const nonce = bnToU8a(index, 64, true);
+  const params = u8aConcat(new Uint8Array([1, 0]), encodeParams(extrinsic.params, values, version));
+
+  const signature = pair.sign(u8aConcat(nonce, params, era, hash));
 
   return u8aConcat(
     prefixes.poc3Version,
-    version === 'poc-1'
-      ? prefixes.none
-      : prefixes.publicKey,
+    version === 'poc-1' ? prefixes.none : prefixes.publicKey,
     pair.publicKey(),
     signature,
-    message
+    nonce,
+    era,
+    params
   );
 }
