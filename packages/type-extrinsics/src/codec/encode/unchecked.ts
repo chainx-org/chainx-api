@@ -12,16 +12,19 @@ import u8aConcat from '@polkadot/util/u8a/concat';
 
 import encode from './index';
 import prefixes from './prefixes';
+import encodeExtrinsic from './extrinsic';
 
 export default function unchecked (pair: KeyringPair, index: number | BN, extrinsic: SectionItem<Extrinsics>, values: Array<any>, version: EncodingVersions = 'latest'): UncheckedRaw {
-  const message = encode(pair.publicKey(), index, extrinsic, values, version);
+  const message = encodeExtrinsic(extrinsic, values, index, version);
   const signature = pair.sign(message);
 
   return u8aConcat(
+    prefixes.poc3Version,
     version === 'poc-1'
       ? prefixes.none
       : prefixes.publicKey,
-    message,
-    signature
+    pair.publicKey(),
+    signature,
+    message
   );
 }

@@ -37,7 +37,7 @@ export type PublicMethods = typeof publicMethods;
  */
 export default (name: Interface$Sections): Section<Interfaces, PrivateMethods, PublicMethods> =>
   createSection(name)((createMethod: CreateItems<Interfaces>) => ({
-    description: 'Authoring of network items',
+    description: 'Substrate authoring RPC API',
     public: Object.keys(publicMethods).reduce((result, key) => {
       result[key] = createMethod(key)(publicMethods[key]);
 

@@ -7,6 +7,9 @@
   "maintainers": [
     "Jaco Greeff <jacogr@gmail.com>"
   ],
+  "scripts": {
+    "sync": "rsync -avzr --delete build/ ../../../poc-chainx/node_modules/@polkadot/extrinsics/"
+  },
   "contributors": [],
   "license": "ISC",
   "dependencies": {

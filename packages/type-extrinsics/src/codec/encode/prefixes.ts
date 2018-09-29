@@ -15,11 +15,15 @@ const bytes4 = new Uint8Array([0xfd]);
 const bytes2 = new Uint8Array([0xfc]);
 const none = new Uint8Array([]);
 const publicKey = new Uint8Array([0xff]);
+const poc3Version = new Uint8Array([0x81]);
+const era = new Uint8Array([0x00]);
 
 export default {
   bytes8,
   bytes4,
   bytes2,
   none,
-  publicKey
+  publicKey,
+  poc3Version,
+  era
 };

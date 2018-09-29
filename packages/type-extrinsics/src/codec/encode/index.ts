@@ -14,7 +14,7 @@ export default function encode (publicKey: Uint8Array, index: number | BN, extri
   return encodeCall(
     publicKey,
     index,
-    encodeExtrinsic(extrinsic, values, version),
+    encodeExtrinsic(extrinsic, values, index, version),
     version
   );
 }
