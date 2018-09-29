@@ -14,8 +14,6 @@ export type Extrinsics = {
   staking: Section<Extrinsics, any, any>,
   timestamp: Section<Extrinsics, any, any>,
   treasury: Section<Extrinsics, any, any>,
-  // polkadot
-  parachains: Section<Extrinsics, any, any>
 };
 
 export type Extrinsic$Sections = keyof Extrinsics;

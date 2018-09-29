@@ -8,5 +8,4 @@ export * from './bn';
 export * from './bytes';
 export * from './hash';
 export * from './objectId';
-export * from './parachainId';
 export * from './signature';

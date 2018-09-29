@@ -10,7 +10,6 @@ import contract from './contract';
 import council from './council';
 import councilVoting from './councilVoting';
 import democracy from './democracy';
-import parachains from './parachains';
 import session from './session';
 import staking from './staking';
 import system from './system';
@@ -23,7 +22,6 @@ const storages: Storages = {
   council: council('council'),
   councilVoting: councilVoting('councilVoting'),
   democracy: democracy('democracy'),
-  parachains: parachains('parachains'),
   session: session('session'),
   staking: staking('staking'),
   system: system('system'),

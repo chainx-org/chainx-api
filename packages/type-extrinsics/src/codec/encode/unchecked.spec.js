@@ -104,18 +104,4 @@ describe('unchecked', () => {
       )
     );
   });
-
-  it('encoded parachains.setHeads correctly (actual values)', () => {
-    expect(
-      encode(
-        keyring.nobody, 0,
-        extrinsics.parachains.public.setHeads,
-        [[]]
-      )
-    ).toEqual(
-      hexToU8a(
-        '0xff00000000000000000000000000000000000000000000000000000000000000000000000008000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000'
-      )
-    );
-  });
 });
