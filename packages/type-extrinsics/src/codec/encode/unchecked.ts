@@ -27,7 +27,7 @@ export default function unchecked (
   // const message = encodeExtrinsic(extrinsic, values, index, version);
   const era = prefixes.era;
   const nonce = bnToU8a(index, 64, true);
-  const params = u8aConcat(new Uint8Array([1, 0]), encodeParams(extrinsic.params, values, version));
+  const params = u8aConcat(extrinsic.index, encodeParams(extrinsic.params, values, version));
 
   const signature = pair.sign(u8aConcat(nonce, params, era, hash));
 
