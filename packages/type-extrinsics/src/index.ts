@@ -5,6 +5,7 @@
 import { Extrinsics } from '@polkadot/extrinsics/types';
 
 import consensus from './consensus';
+import balances from './balances';
 import council from './council';
 import councilVoting from './councilVoting';
 import democracy from './democracy';
@@ -15,13 +16,14 @@ import treasury from './treasury';
 
 const extrinsics: Extrinsics = {
   consensus: consensus('consensus', 0),
-  session: session('session', 1),
-  staking: staking('staking', 2),
-  timestamp: timestamp('timestamp', 3),
-  treasury: treasury('treasury', 4),
-  democracy: democracy('democracy', 5),
-  council: council('council', 6),
-  councilVoting: councilVoting('councilVoting', 7),
+  balances: balances('balances', 1),
+  session: session('session', 2),
+  staking: staking('staking', 3),
+  timestamp: timestamp('timestamp', 4),
+  treasury: treasury('treasury', 5),
+  democracy: democracy('democracy', 6),
+  council: council('council', 7),
+  councilVoting: councilVoting('councilVoting', 8)
 };
 
 export default extrinsics;

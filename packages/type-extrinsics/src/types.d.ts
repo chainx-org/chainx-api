@@ -7,6 +7,7 @@ import { Section } from '@polkadot/params/types';
 export type Extrinsics = {
   // substrate
   consensus: Section<Extrinsics, any, any>,
+  balances: Section<Extrinsics, any, any>,
   council: Section<Extrinsics, any, any>,
   councilVoting: Section<Extrinsics, any, any>,
   democracy: Section<Extrinsics, any, any>,
