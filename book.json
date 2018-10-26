@@ -1,9 +1,0 @@
-{
-  "title": "Polkadot API Book",
-  "gitbook": ">=2.4.0",
-  "plugins": [
-    "include-codeblock"
-  ],
-  "root": "docs",
-  "pluginsConfig": {}
-}

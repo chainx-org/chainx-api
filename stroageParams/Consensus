@@ -1,2 +1,0 @@
-/// Authorities set actual at the block execution start. IsSome only if the set has been changed.
-OriginalAuthorities: Vec<T::SessionKey>;
